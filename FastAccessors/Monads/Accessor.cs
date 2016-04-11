@@ -1,4 +1,4 @@
-﻿namespace FastAccessors {
+﻿namespace FastAccessors.Monads {
     using System;
     using System.Diagnostics;
 

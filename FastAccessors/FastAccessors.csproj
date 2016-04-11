@@ -54,10 +54,14 @@
     <Reference Include="nunit.framework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessorKey.cs" />
     <Compile Include="Accessors\Field.cs" />
+    <Compile Include="API\Field.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Monads\Accessor.cs" />
     <Compile Include="Tests\Field.cs" />
+    <Compile Include="Tests\Field.Monads.cs" />
+    <Compile Include="Tests\TestClasses.cs" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)' == 'DebugTest'">
     <None Include="packages.config" />
