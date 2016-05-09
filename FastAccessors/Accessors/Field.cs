@@ -38,11 +38,11 @@
         static Func<object, object> EmitFieldAccesssor(System.Reflection.FieldInfo field, Type type) {
             var method = new DynamicMethod("__get_" + field.Name, MA.Static | MA.Public, CallingConventions.Standard,
                 typeof(object), accessorArgs, typeof(FieldAccessor).Module, true);
-            var ilGen = method.GetILGenerator();
-            ilGen.Emit(OpCodes.Ldarg_0);
-            ilGen.Emit(type.IsValueType ? OpCodes.Unbox : OpCodes.Castclass, type);
-            ilGen.Emit(OpCodes.Ldfld, field);
-            ilGen.Emit(OpCodes.Ret);
+            var ILGen = method.GetILGenerator();
+            ILGen.Emit(OpCodes.Ldarg_0);
+            ILGen.EmitUnboxOrCast(type);
+            ILGen.Emit(OpCodes.Ldfld, field);
+            ILGen.EmitBoxEndRet(field.FieldType);
             return method.CreateDelegate(typeof(Func<object, object>)) as Func<object, object>;
         }
     }
@@ -83,10 +83,10 @@
         static Func<T, object> EmitFieldAccesssor(System.Reflection.FieldInfo field) {
             var method = new DynamicMethod("__get_" + field.Name, MA.Static | MA.Public, CallingConventions.Standard,
                 typeof(object), accessorArgs, type, true);
-            var ilGen = method.GetILGenerator();
-            ilGen.Emit(OpCodes.Ldarg_0);
-            ilGen.Emit(OpCodes.Ldfld, field);
-            ilGen.Emit(OpCodes.Ret);
+            var ILGen = method.GetILGenerator();
+            ILGen.Emit(OpCodes.Ldarg_0);
+            ILGen.Emit(OpCodes.Ldfld, field);
+            ILGen.EmitBoxEndRet(field.FieldType);
             return method.CreateDelegate(typeof(Func<T, object>)) as Func<T, object>;
         }
     }
@@ -126,10 +126,20 @@
         static Func<object> EmitFieldAccesssor(System.Reflection.FieldInfo field, Type type) {
             var method = new DynamicMethod("__get_" + field.Name, MA.Static | MA.Public, CallingConventions.Standard,
                 typeof(object), null, type, true);
-            var ilGen = method.GetILGenerator();
-            ilGen.Emit(OpCodes.Ldsfld, field);
-            ilGen.Emit(OpCodes.Ret);
+            var ILGen = method.GetILGenerator();
+            ILGen.Emit(OpCodes.Ldsfld, field);
+            ILGen.EmitBoxEndRet(field.FieldType);
             return method.CreateDelegate(typeof(Func<object>)) as Func<object>;
+        }
+    }
+    //
+    static class BoxExtension {
+        internal static void EmitUnboxOrCast(this ILGenerator ILGen, System.Type type) {
+            ILGen.Emit(type.IsValueType ? OpCodes.Unbox : OpCodes.Castclass, type);
+        }
+        internal static void EmitBoxEndRet(this ILGenerator ILGen, System.Type type) {
+            if(type.IsValueType) ILGen.Emit(OpCodes.Box, type);
+            ILGen.Emit(OpCodes.Ret);
         }
     }
 }
