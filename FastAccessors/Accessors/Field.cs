@@ -11,7 +11,7 @@
         static Func<object, object> defaultAccessor = _ => null;
         internal static object GetFieldValue(object instance, Type type, string fieldName) {
             Func<object, object> accessor;
-            string key = type.Name + "." + fieldName;
+            string key = AccessorKey.GetKey(type, fieldName);
             if(!accessors.TryGetValue(key, out accessor)) {
                 var field = type.GetField(fieldName, BF.Public | BF.NonPublic | BF.Instance);
                 accessor = (field != null) ? EmitFieldAccesssor(field, type) : defaultAccessor;
@@ -95,7 +95,7 @@
         static Func<object> defaultAccessor = () => null;
         internal static object GetFieldValue(Type type, string fieldName) {
             Func<object> accessor;
-            string key = type.Name + "." + fieldName;
+            string key = AccessorKey.GetKey(type, fieldName);
             if(!accessors.TryGetValue(key, out accessor)) {
                 var field = type.GetField(fieldName, BF.Public | BF.NonPublic | BF.Static);
                 accessor = (field != null) ? EmitFieldAccesssor(field, type) : defaultAccessor;
