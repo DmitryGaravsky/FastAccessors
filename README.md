@@ -1,9 +1,9 @@
-# FastAccessors
+﻿# FastAccessors
 Fast Accessors Library for .Net.  
 Allows you to access any members of your .Net classes as fast as you want.
 
 
-##Usage
+## Usage
 
 Let the `Foo` class is defined as follows:
 ```cs

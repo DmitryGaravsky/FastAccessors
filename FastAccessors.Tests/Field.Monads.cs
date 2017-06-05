@@ -1,5 +1,4 @@
-﻿#if DEBUGTEST
-namespace FastAccessors.Monads.Tests {
+﻿namespace FastAccessors.Monads.Tests {
     using System;
     using FastAccessors.Tests;
     using NUnit.Framework;
@@ -62,4 +61,3 @@ namespace FastAccessors.Monads.Tests {
         }
     }
 }
-#endif

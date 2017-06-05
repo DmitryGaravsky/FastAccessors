@@ -1,5 +1,4 @@
-﻿#if DEBUGTEST
-namespace FastAccessors.Tests {
+﻿namespace FastAccessors.Tests {
     using System;
     using NUnit.Framework;
 
@@ -77,7 +76,6 @@ namespace FastAccessors.Tests {
             fld_private_Size_T = Field.Register<Bar>("private_Size", true);
         }
         #endregion
-
         [Test(Description = "1.1 DynamicMethod(Instance)")]
         public void Accessor01_DynamicMethod() {
             Assert.AreEqual("Bar(Private)".Length, Field.GetValue(obj, instanceType, "private_Size"));
@@ -119,6 +117,4 @@ namespace FastAccessors.Tests {
             Assert.AreEqual("Bar(Private)".Length, Field.GetDefaultValue<Bar>(instance));
         }
     }
-
 }
-#endif
