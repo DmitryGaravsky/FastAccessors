@@ -1,6 +1,6 @@
 ﻿# FastAccessors
 Fast Accessors Library for .Net.  
-Allows you to access any members of your .Net classes as fast as you want.
+Allows you to access any fields of your .Net classes as fast as you want.
 
 
 ## Usage

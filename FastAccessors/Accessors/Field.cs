@@ -7,7 +7,7 @@
     using MA = System.Reflection.MethodAttributes;
 
     static class FieldAccessor {
-        static IDictionary<string, Func<object, object>> accessors = new Dictionary<string, Func<object, object>>(StringComparer.Ordinal);
+        static Dictionary<string, Func<object, object>> accessors = new Dictionary<string, Func<object, object>>(StringComparer.Ordinal);
         static Func<object, object> defaultAccessor = _ => null;
         internal static object GetFieldValue(object instance, Type type, string fieldName) {
             Func<object, object> accessor;
@@ -19,7 +19,7 @@
             }
             return accessor(instance);
         }
-        static IDictionary<int, Func<object, object>> keyAccessors = new Dictionary<int, Func<object, object>>();
+        static Dictionary<int, Func<object, object>> keyAccessors = new Dictionary<int, Func<object, object>>();
         internal static object GetFieldValue(object instance, int key) {
             return keyAccessors[key](instance);
         }
@@ -47,7 +47,7 @@
         }
     }
     static class FieldAccessor<T> {
-        static IDictionary<string, Func<T, object>> accessors = new Dictionary<string, Func<T, object>>(StringComparer.Ordinal);
+        static Dictionary<string, Func<T, object>> accessors = new Dictionary<string, Func<T, object>>(StringComparer.Ordinal);
         static Func<T, object> defaultAccessor = _ => null;
         internal static object GetFieldValue(T instance, string fieldName) {
             Func<T, object> accessor;
@@ -59,7 +59,7 @@
             return accessor(instance);
         }
         static Func<T, object> defaultFieldAccessor = defaultAccessor;
-        static IDictionary<int, Func<T, object>> keyAccessors = new Dictionary<int, Func<T, object>>();
+        static Dictionary<int, Func<T, object>> keyAccessors = new Dictionary<int, Func<T, object>>();
         internal static object GetFieldValue(T instance, int key) {
             return keyAccessors[key](instance);
         }
@@ -91,7 +91,7 @@
         }
     }
     static class FieldAccessorStatic {
-        static IDictionary<string, Func<object>> accessors = new Dictionary<string, Func<object>>(StringComparer.Ordinal);
+        static Dictionary<string, Func<object>> accessors = new Dictionary<string, Func<object>>(StringComparer.Ordinal);
         static Func<object> defaultAccessor = () => null;
         internal static object GetFieldValue(Type type, string fieldName) {
             Func<object> accessor;
@@ -103,7 +103,7 @@
             }
             return accessor();
         }
-        static IDictionary<int, Func<object>> keyAccessors = new Dictionary<int, Func<object>>();
+        static Dictionary<int, Func<object>> keyAccessors = new Dictionary<int, Func<object>>();
         static Func<object> defaultFieldAccessor = defaultAccessor;
         internal static object GetFieldValue(int key) {
             return keyAccessors[key]();
