@@ -26,7 +26,7 @@
         /// <summary>@Accessor(T): Get Default Static Field Value</summary>
         [DebuggerStepThrough]
         public static object @ƒsDefault() {
-            return FieldAccessorStatic.GetFieldValue();
+            return FieldAccessorStatic.GetDefaultFieldValue();
         }
         /// <summary>@Accessor(T): Get Field Value</summary>
         [DebuggerStepThrough]
@@ -41,7 +41,7 @@
         /// <summary>@Accessor(T): Get Default Field Value</summary>
         [DebuggerStepThrough]
         public static object ƒDefault<T>(this T instance) {
-            return FieldAccessor<T>.GetFieldValue(instance);
+            return FieldAccessor<T>.GetDefaultFieldValue(instance);
         }
         //
         [DebuggerStepThrough]

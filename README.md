@@ -1,7 +1,8 @@
-﻿# FastAccessors
-Fast Accessors Library for .Net.  
-Allows you to access any fields of your .Net classes as fast as you want.
+# FastAccessors
+Fast Accessors Library for .NET.  
+Allows you to access any fields of your .NET classes as fast as you want.
 
+<a href="https://www.nuget.org/packages/FastAccessors/"><img alt="Nuget Version" src="https://img.shields.io/nuget/v/FastAccessors.svg" data-canonical-src="https://img.shields.io/nuget/v/FastAccessors.svg" style="max-width:100%;" /></a>
 
 ## Usage
 
@@ -49,7 +50,20 @@ Foo foo = new Foo()
 string _name = foo.@ƒDefault() as string;
 int _s_Field = (int)foo.@ƒsDefault();
 ```
-##Benchmarks
+
+### NuGet
+
+To install [FastAccessors](https://www.nuget.org/packages/FastAccessors), run the following command in the Package Manager Console:
+
+    Install-Package FastAccessors
+
+
+### License
+
+The FastAccessors library is licensed under the [MIT](https://github.com/DmitryGaravsky/FastAccessors/blob/master/LICENSE.TXT) license.
+
+
+### Benchmarks
 
 ```ini
 BenchmarkDotNet=v0.9.4.0

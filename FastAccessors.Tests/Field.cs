@@ -13,12 +13,11 @@
         public void SetUp() {
             obj = instance = new Foo("Foo");
             instanceType = typeof(Foo);
+            fld_static_Name = Field.RegisterDefaultStatic("static_Name", instanceType);
             fld_private_Name = Field.Register("private_Name", instanceType);
-            fld_static_Name = Field.RegisterStatic("static_Name", instanceType, true);
-            fld_private_Name_T = Field.Register<Foo>("private_Name", true);
+            fld_private_Name_T = Field.RegisterDefault<Foo>("private_Name");
         }
         #endregion
-
         [Test(Description = "1.1 DynamicMethod(Instance)")]
         public void Accessor01_DynamicMethod() {
             Assert.AreEqual("Foo(Private)", Field.GetValue(obj, instanceType, "private_Name"));
@@ -60,6 +59,7 @@
             Assert.AreEqual("Foo(Private)", Field.GetDefaultValue<Foo>(instance));
         }
     }
+
     [TestFixture]
     public class FieldAccessor_Tests_Val {
         #region SetUp
@@ -71,9 +71,9 @@
         public void SetUp() {
             obj = instance = new Bar("Bar".Length);
             instanceType = typeof(Bar);
+            fld_static_Size = Field.RegisterDefaultStatic("static_Size", instanceType);
             fld_private_Size = Field.Register("private_Size", instanceType);
-            fld_static_Size = Field.RegisterStatic("static_Size", instanceType, true);
-            fld_private_Size_T = Field.Register<Bar>("private_Size", true);
+            fld_private_Size_T = Field.RegisterDefault<Bar>("private_Size");
         }
         #endregion
         [Test(Description = "1.1 DynamicMethod(Instance)")]

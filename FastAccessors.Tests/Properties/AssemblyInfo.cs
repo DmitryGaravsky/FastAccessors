@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Fast Accessors Library for .Net")]
 [assembly: AssemblyCompany("Dmitry Garavsky(https://github.com/DmitryGaravsky)")]
 [assembly: AssemblyProduct("FastAccessors.Tests")]
-[assembly: AssemblyCopyright("Dmitry Garavsky, ©2017")]
+[assembly: AssemblyCopyright("Dmitry Garavsky, ©2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

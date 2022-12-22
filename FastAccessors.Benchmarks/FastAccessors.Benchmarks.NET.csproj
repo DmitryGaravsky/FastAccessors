@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ProjectGuid>{6BB148CA-D784-4915-B11E-B42FC53CAA9A}</ProjectGuid>
+    <EnableDefaultItems>False</EnableDefaultItems>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+
+    <RootNamespace>FastAccessors.Benchmarks</RootNamespace>
+    <AssemblyName>FastAccessors.Benchmarks.NET</AssemblyName>
+    <OutputPath>..\bin\</OutputPath>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>False</AppendTargetFrameworkToOutputPath>
+    <EmbeddedResourceUseDependentUponConvention>False</EmbeddedResourceUseDependentUponConvention>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Benchmark.cs" />
+    <Compile Include="FastAccessors.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection.cs" />
+    <Compile Include="TestClasses.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FastAccessors\FastAccessors.NET.csproj" />
+  </ItemGroup>
+</Project>

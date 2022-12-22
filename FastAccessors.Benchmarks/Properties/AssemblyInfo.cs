@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FastAccessors")]
+[assembly: AssemblyTitle("FastAccessors.Benchmarks")]
 [assembly: AssemblyDescription("Fast Accessors Library for .Net")]
 [assembly: AssemblyCompany("Dmitry Garavsky(https://github.com/DmitryGaravsky)")]
-[assembly: AssemblyProduct("FastAccessors")]
+[assembly: AssemblyProduct("FastAccessors.Benchmarks")]
 [assembly: AssemblyCopyright("Dmitry Garavsky, ©2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("97ab9619-c263-4ff8-a92f-89da0bfa8ccc")]
+[assembly: Guid("CA7E802F-9B68-40C5-92CC-AC6D71F83176")]
 
 // Version information for an assembly consists of the following four values:
 //

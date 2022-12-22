@@ -17,13 +17,13 @@ namespace FastAccessors {
             var sb = new System.Text.StringBuilder(type.Name);
             int argumentsPos = type.Name.IndexOf('`');
             sb.Remove(argumentsPos, type.Name.Length - argumentsPos);
-            sb.Append("<");
+            sb.Append('<');
             var genericArgs = type.GetGenericArguments();
             for(int i = 0; i < genericArgs.Length; i++) {
                 sb.Append(GetTypeName(genericArgs[i]));
-                if(i > 0) sb.Append(",");
+                if(i > 0) sb.Append(',');
             }
-            sb.Append(">");
+            sb.Append('>');
             return sb.ToString();
         }
     }
