@@ -4,10 +4,8 @@
     <EnableDefaultItems>False</EnableDefaultItems>
     <OutputType>Library</OutputType>
     <TargetFrameworks>net472;net6.0</TargetFrameworks>
-
     <RootNamespace>FastAccessors</RootNamespace>
     <AssemblyName>FastAccessors</AssemblyName>
-    <OutputPath>..\bin\</OutputPath>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AppendTargetFrameworkToOutputPath>False</AppendTargetFrameworkToOutputPath>
     <EmbeddedResourceUseDependentUponConvention>False</EmbeddedResourceUseDependentUponConvention>
@@ -16,15 +14,31 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Fast Accessors Library for .NET</Title>
     <Authors>Dmitry Garavsky</Authors>
-    <Description>Fast Accessors Library for .NET
-Allows you to access any fields of your .NET classes as fast as you want.</Description>
+    <Description>
+      Fast Accessors Library for .NET
+      Allows you to access any fields of your .NET classes as fast as you want.
+    </Description>
     <Copyright>Dmitry Garavsky, ©2022</Copyright>
     <PackageProjectUrl>https://github.com/DmitryGaravsky/FastAccessors</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DmitryGaravsky/FastAccessors</RepositoryUrl>
     <PackageTags>NET;Reflection;Accessor;Field</PackageTags>
     <PackageLicenseFile>LICENSE.TXT</PackageLicenseFile>
     <PackageReadmeFile>README.MD</PackageReadmeFile>
+    <PackageOutputPath>..\bin</PackageOutputPath>
+    <Version>1.0.0.1</Version>
+    <PackageReleaseNotes>
+      v1.0.0.1:
+      - multitarget nuget package for .NET6/.Net 4.7.2
+    </PackageReleaseNotes>
   </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net472' ">
+    <OutputPath>..\bin.NetFW\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
+    <OutputPath>..\bin.NET\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="AccessorKey.cs" />
     <Compile Include="Accessors\Field.cs" />
