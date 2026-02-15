@@ -1,44 +1,35 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2FDE2DC0-F1DC-4090-84CD-58C0204CC63D}</ProjectGuid>
+    <EnableDefaultItems>False</EnableDefaultItems>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworks>net472;net8.0</TargetFrameworks>
     <RootNamespace>FastAccessors</RootNamespace>
     <AssemblyName>FastAccessors</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>..\bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EmbeddedResourceUseDependentUponConvention>False</EmbeddedResourceUseDependentUponConvention>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <Prefer32Bit>false</Prefer32Bit>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Fast Accessors Library for .NET</Title>
+    <Authors>Dmitry Garavsky</Authors>
+    <Description>
+      Fast Accessors Library for .NET
+      Allows you to access any fields of your .NET classes as fast as you want.
+    </Description>
+    <Copyright>Dmitry Garavsky, ©2026</Copyright>
+    <PackageProjectUrl>https://github.com/DmitryGaravsky/FastAccessors</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DmitryGaravsky/FastAccessors</RepositoryUrl>
+    <PackageTags>NET;Reflection;Accessor;Field</PackageTags>
+    <PackageLicenseFile>LICENSE.TXT</PackageLicenseFile>
+    <PackageReadmeFile>README.MD</PackageReadmeFile>
+    <PackageOutputPath>..\bin</PackageOutputPath>
+    <Version>1.0.0.2</Version>
+    <PackageReleaseNotes>
+      v1.0.0.2: support for .NET8
+    </PackageReleaseNotes>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-  </ItemGroup>
+  
   <ItemGroup>
     <Compile Include="AccessorKey.cs" />
     <Compile Include="Accessors\Field.cs" />
@@ -46,13 +37,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Monads\Accessor.cs" />
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <None Include="..\LICENSE.TXT">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.MD">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 </Project>
