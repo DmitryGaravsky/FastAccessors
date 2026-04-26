@@ -1,15 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <ProjectGuid>{2FDE2DC0-F1DC-4090-84CD-58C0204CC63D}</ProjectGuid>
+    <ProjectGuid>{AEBBE90E-CFFE-4E99-BFAA-A176D8CAD7D2}</ProjectGuid>
     <EnableDefaultItems>False</EnableDefaultItems>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>net472;net8.0</TargetFrameworks>
+    <TargetFrameworks>net472;netstandard2.0;net8.0</TargetFrameworks>
     <RootNamespace>FastAccessors</RootNamespace>
     <AssemblyName>FastAccessors</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <EmbeddedResourceUseDependentUponConvention>False</EmbeddedResourceUseDependentUponConvention>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Fast Accessors Library for .NET</Title>
     <Authors>Dmitry Garavsky</Authors>
@@ -24,12 +25,15 @@
     <PackageLicenseFile>LICENSE.TXT</PackageLicenseFile>
     <PackageReadmeFile>README.MD</PackageReadmeFile>
     <PackageOutputPath>..\bin</PackageOutputPath>
-    <Version>1.0.0.2</Version>
+    <Version>1.0.0.3</Version>
     <PackageReleaseNotes>
-      v1.0.0.2: support for .NET8
+      v1.0.0.3: netstandard2.0 support + XML documentation
     </PackageReleaseNotes>
   </PropertyGroup>
   
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Reflection.Emit.Lightweight" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessorKey.cs" />
     <Compile Include="Accessors\Field.cs" />

@@ -51,6 +51,12 @@ string _name = foo.@ƒDefault() as string;
 int _s_Field = (int)foo.@ƒsDefault();
 ```
 
+### Documentation
+
+- [Getting Started](docs/getting-started.md)
+- [API Reference: Field](docs/api-field.md)
+- [API Reference: Monads (Accessor)](docs/api-monads.md)
+
 ### NuGet
 
 To install [FastAccessors](https://www.nuget.org/packages/FastAccessors), run the following command in the Package Manager Console:
